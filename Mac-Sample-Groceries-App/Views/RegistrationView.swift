@@ -154,7 +154,8 @@ struct RegistrationView: View {
     
     private func registration(input:RegistrationInput) {
         isLoading = true
-        let registrationUrl = URL(string: "http://127.0.0.1:8080/users/register")!
+//        let registrationUrl = URL(string: "http://127.0.0.1:8080/users/register")!
+        let registrationUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.register)!
         
         ApiManager.shared.post(url: registrationUrl, body: input) { (result: Result<LoginResponse, Error>) in
             switch result {

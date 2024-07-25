@@ -113,7 +113,7 @@ struct ListView: View {
                     .frame(width: 500, height: 300)
                 }
             }
-            .navigationBarBackButtonHidden(false)
+            .navigationBarBackButtonHidden()
         }
         .toast(message: toastManager.message, isShowing: $toastManager.isShowing, type: toastManager.toastType)
         .navigationTitle("List Items")
@@ -131,7 +131,8 @@ struct ListView: View {
     private func getAllListItemsByUserID(input: GetListItemInput){
         isLoading = true
         
-        let getListByUserIDUrl = URL(string: "http://127.0.0.1:8080/createlist/getlistbyuserid")!
+//        let getListByUserIDUrl = URL(string: "http://127.0.0.1:8080/createlist/getlistbyuserid")!
+        let getListByUserIDUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.getlistbyuserid)!
         ApiManager.shared.post(url: getListByUserIDUrl, body: input) { (result: Result<Getlistbyuserid, Error>) in
             switch result {
             case .success(let response):
@@ -155,7 +156,8 @@ struct ListView: View {
     private func createList(input: CreateListInput){
         isLoading = true
         
-        let createListUrl = URL(string: "http://127.0.0.1:8080/createlist/listcreate")!
+//        let createListUrl = URL(string: "http://127.0.0.1:8080/createlist/listcreate")!
+        let createListUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.listcreate)!
         ApiManager.shared.post(url: createListUrl, body: input) { (result: Result<SuccessResponse, Error>) in
             switch result {
             case .success(let response):
@@ -176,7 +178,8 @@ struct ListView: View {
     private func updateList(input: UpdateListInput){
         isLoading = true
         
-        let updateListUrl = URL(string: "http://127.0.0.1:8080/createlist/listupdate")!
+//        let updateListUrl = URL(string: "http://127.0.0.1:8080/createlist/listupdate")!
+        let updateListUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.listupdate)!
         ApiManager.shared.patch(url: updateListUrl, body: input) { (result: Result<SuccessResponse, Error>) in
             switch result {
             case .success(let response):
@@ -197,7 +200,8 @@ struct ListView: View {
     private func deleteList(input: DeleteListInput){
         isLoading = true
         
-        let deleteListUrl = URL(string: "http://127.0.0.1:8080/createlist/listdelete")!
+        let deleteListUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.listdelete)!
+//        let deleteListUrl = URL(string: "http://127.0.0.1:8080/createlist/listdelete")!
         ApiManager.shared.delete(url: deleteListUrl, body: input) { (result: Result<SuccessResponse, Error>) in
             switch result {
             case .success(let response):

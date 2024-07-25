@@ -119,7 +119,8 @@ struct LoginView: View {
     private func login(loginInput: LoginInput) {
         isLoading = true
         
-        let loginUrl = URL(string: "http://127.0.0.1:8080/users/login")!
+        let loginUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.login)!
+//        let loginUrl = URL(string: "http://127.0.0.1:8080/users/login")!
         ApiManager.shared.post(url: loginUrl, body: loginInput) { (result: Result<LoginResponse, Error>) in
             switch result {
             case .success(let response):

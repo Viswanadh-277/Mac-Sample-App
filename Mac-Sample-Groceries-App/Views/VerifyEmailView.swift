@@ -118,7 +118,8 @@ struct VerifyEmailView: View {
     
     private func verifyEmail(input: EmailVerifyInput) {
         isLoading = true
-        let emailVerifyUrl = URL(string: "http://127.0.0.1:8080/users/verify")!
+//        let emailVerifyUrl = URL(string: "http://127.0.0.1:8080/users/verify")!
+        let emailVerifyUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.verify)!
         
         ApiManager.shared.post(url: emailVerifyUrl, body: input) { (result: Result<LoginResponse, Error>) in
             switch result {

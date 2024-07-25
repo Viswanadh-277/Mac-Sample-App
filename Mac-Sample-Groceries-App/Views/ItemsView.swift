@@ -21,20 +21,20 @@ struct ItemsView: View {
         GeometryReader { geo in
             VStack {
                 HStack {
-//                    Button  {
-//                        self.presentationMode.wrappedValue.dismiss()
-//                    } label: {
-//                        Image("backIcon")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .edgesIgnoringSafeArea(.all)
-//                            .clipped()
-//                            .frame(width: 40,height: 40)
-//                    }
-//                    .padding()
-//                    .buttonStyle(PlainButtonStyle())
-//
-//                    Spacer()
+                    Button  {
+                        self.presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image("backIcon")
+                            .resizable()
+                            .scaledToFit()
+                            .edgesIgnoringSafeArea(.all)
+                            .clipped()
+                            .frame(width: 40,height: 40)
+                    }
+                    .padding()
+                    .buttonStyle(PlainButtonStyle())
+
+                    Spacer()
                     
                     Text("")
                         .typingEffect(text: listObj.listName, speed: 0.1)
@@ -44,7 +44,7 @@ struct ItemsView: View {
                         .padding()
                         .frame(alignment: .center)
                     
-//                    Spacer()
+                    Spacer()
                 }
                 .padding()
                 
@@ -122,7 +122,8 @@ struct ItemsView: View {
     private func getAllItemsByListID(input: GetItemsListInput){
         isLoading = true
         
-        let getListByUserIDUrl = URL(string: "http://127.0.0.1:8080/itemslist/getitemsforlistId")!
+//        let getListByUserIDUrl = URL(string: "http://127.0.0.1:8080/itemslist/getitemsforlistId")!
+        let getListByUserIDUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.getitemsforlistId)!
         ApiManager.shared.post(url: getListByUserIDUrl, body: input) { (result: Result<GetItemlistById, Error>) in
             switch result {
             case .success(let response):
@@ -146,7 +147,8 @@ struct ItemsView: View {
     private func createItemList(input: CreateItemListInput){
         isLoading = true
         
-        let createListUrl = URL(string: "http://127.0.0.1:8080/itemslist/itemslistcreate")!
+//        let createListUrl = URL(string: "http://127.0.0.1:8080/itemslist/itemslistcreate")!
+        let createListUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.itemslistcreate)!
         ApiManager.shared.post(url: createListUrl, body: input) { (result: Result<SuccessResponse, Error>) in
             switch result {
             case .success(let response):
@@ -167,7 +169,8 @@ struct ItemsView: View {
     private func updateItemList(input: UpdateItemListInput){
         isLoading = true
         
-        let updateListUrl = URL(string: "http://127.0.0.1:8080/itemslist/itemslistupdate")!
+//        let updateListUrl = URL(string: "http://127.0.0.1:8080/itemslist/itemslistupdate")!
+        let updateListUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.itemslistupdate)!
         ApiManager.shared.patch(url: updateListUrl, body: input) { (result: Result<SuccessResponse, Error>) in
             switch result {
             case .success(let response):
@@ -188,7 +191,8 @@ struct ItemsView: View {
     private func deleteItemList(input: DeleteItemListInput){
         isLoading = true
         
-        let deleteListUrl = URL(string: "http://127.0.0.1:8080/itemslist/itemslistdelete")!
+//        let deleteListUrl = URL(string: "http://127.0.0.1:8080/itemslist/itemslistdelete")!
+        let deleteListUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.itemslistdelete)!
         ApiManager.shared.delete(url: deleteListUrl, body: input) { (result: Result<SuccessResponse, Error>) in
             switch result {
             case .success(let response):

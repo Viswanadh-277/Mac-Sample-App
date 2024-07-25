@@ -14,15 +14,34 @@ struct ProfileInfoView: View {
     @State private var email: String = ""
     @State private var phoneNumber: String = ""
     @State private var navigateToLogin : Bool = false
+    @State private var navigateToList : Bool = false
     @State private var isLoading: Bool = false
     @StateObject var toastManager = ToastManager()
     @StateObject private var authManager = AuthManager()
+    @Environment(\.presentationMode) var presentationMode
     var userObj : UserDetails
     
     var body: some View {
         NavigationStack {
             GeometryReader { geo in
                 VStack(alignment:.center) {
+                    HStack {
+                        Button  {
+                            navigateToList = true
+                        } label: {
+                            Image("backIcon")
+                                .resizable()
+                                .scaledToFit()
+                                .edgesIgnoringSafeArea(.all)
+                                .clipped()
+                                .frame(width: 40,height: 40)
+                        }
+                        .padding()
+                        .buttonStyle(PlainButtonStyle())
+                        
+                        Spacer()
+                    }
+                    
                     Image("personIcon")
                         .resizable()
                         .scaledToFit()
@@ -65,7 +84,7 @@ struct ProfileInfoView: View {
                 .shadow(radius: 10.0)
                 .frame(width: geo.size.width, height: geo.size.height)
             }
-            .navigationBarBackButtonHidden(false)
+            .navigationBarBackButtonHidden()
             .navigationTitle("Profile Info")
             .toast(message: toastManager.message, isShowing: $toastManager.isShowing, type: toastManager.toastType)
             .onAppear {
@@ -73,6 +92,9 @@ struct ProfileInfoView: View {
             }
             .navigationDestination(isPresented: $navigateToLogin) {
                 LoginView()
+            }
+            .navigationDestination(isPresented: $navigateToList) {
+                ListView(userObj: userObj)
             }
         }
     }
@@ -116,7 +138,9 @@ struct ProfileInfoView: View {
     private func EditUser(input: EditUserInput) {
         isLoading = true
         
-        let editUrl = URL(string: "http://127.0.0.1:8080/users/editUser")!
+//        let editUrl = URL(string: "http://127.0.0.1:8080/users/editUser")!
+        let editUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.editUser)!
+        
         ApiManager.shared.post(url: editUrl, body: input) { (result: Result<LoginResponse, Error>) in
             switch result {
             case .success(let response):
@@ -149,7 +173,9 @@ struct ProfileInfoView: View {
     private func DeleteUser(input: DeleteItemListInput) {
         isLoading = true
         
-        let deleteUrl = URL(string: "http://127.0.0.1:8080/users/deleteUser")!
+//        let deleteUrl = URL(string: "http://127.0.0.1:8080/users/deleteUser")!
+        let deleteUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.deleteUser)!
+        
         ApiManager.shared.post(url: deleteUrl, body: input) { (result: Result<LoginResponse, Error>) in
             switch result {
             case .success(let response):
