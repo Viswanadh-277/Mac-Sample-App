@@ -20,10 +20,10 @@ struct LoginResponse: Codable {
 }
 // MARK: - DataClass
 struct UserDetails: Codable {
-    let username: String
-    let isVerified: Bool
-    let phoneNumber, lastName, id, passwordHash: String
-    let firstName, email: String
+    var username: String?
+    var isVerified: Bool?
+    var phoneNumber, lastName, id, passwordHash: String?
+    var firstName, email: String?
 }
 
 struct SuccessResponse: Codable {
@@ -40,6 +40,11 @@ struct RegistrationInput: Codable {
 //MARK: - Email Verification
 struct EmailVerifyInput : Codable {
     let email : String
+}
+
+//MARK: - Edit User
+struct EditUserInput : Codable {
+    var userID, firstName, lastName, username, email, phoneNumber : String
 }
 
 //MARK: - List View

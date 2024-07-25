@@ -87,6 +87,7 @@ struct VerifyEmailView: View {
                 }
                 .frame(width: geo.size.width, height: geo.size.height)
             }
+            .navigationTitle("Verify Email")
             .toast(message: toastManager.message, isShowing: $toastManager.isShowing, type: toastManager.toastType)
             .navigationDestination(isPresented: $navigateToListView) {
                 if let user = authManager.getUserFromDefaults(), user.isVerified == true {

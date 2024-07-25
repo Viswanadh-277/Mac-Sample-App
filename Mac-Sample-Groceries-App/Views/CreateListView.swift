@@ -23,7 +23,7 @@ struct CreateListView: View {
                 
                 Button(action: {
                     if validateFields() {
-                        let newItem = CreateListInput(listName: newName, userID: userObj.id)
+                        let newItem = CreateListInput(listName: newName, userID: userObj.id ?? "")
                         action(newItem)
                     } else {
                         toastManager.show(message: toastManager.message, type: .error)

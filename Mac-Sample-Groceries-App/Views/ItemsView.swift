@@ -21,20 +21,20 @@ struct ItemsView: View {
         GeometryReader { geo in
             VStack {
                 HStack {
-                    Button  {
-                        self.presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Image("backIcon")
-                            .resizable()
-                            .scaledToFit()
-                            .edgesIgnoringSafeArea(.all)
-                            .clipped()
-                            .frame(width: 40,height: 40)
-                    }
-                    .padding()
-                    .buttonStyle(PlainButtonStyle())
-
-                    Spacer()
+//                    Button  {
+//                        self.presentationMode.wrappedValue.dismiss()
+//                    } label: {
+//                        Image("backIcon")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .edgesIgnoringSafeArea(.all)
+//                            .clipped()
+//                            .frame(width: 40,height: 40)
+//                    }
+//                    .padding()
+//                    .buttonStyle(PlainButtonStyle())
+//
+//                    Spacer()
                     
                     Text("")
                         .typingEffect(text: listObj.listName, speed: 0.1)
@@ -44,7 +44,7 @@ struct ItemsView: View {
                         .padding()
                         .frame(alignment: .center)
                     
-                    Spacer()
+//                    Spacer()
                 }
                 .padding()
                 
@@ -57,7 +57,7 @@ struct ItemsView: View {
                     }) {
                         Text("Create Item")
                             .fontWeight(.bold)
-                            .padding(10)
+                            .padding(7)
                             .background(Color.orange)
                             .foregroundColor(.white)
                             .cornerRadius(8)
@@ -108,7 +108,6 @@ struct ItemsView: View {
             .toast(message: toastManager.message, isShowing: $toastManager.isShowing, type: toastManager.toastType)
         }
         .navigationTitle("Items List")
-        .navigationBarBackButtonHidden()
         .onAppear {
             let input = GetItemsListInput(listId: listObj.id)
             getAllItemsByListID(input: input)

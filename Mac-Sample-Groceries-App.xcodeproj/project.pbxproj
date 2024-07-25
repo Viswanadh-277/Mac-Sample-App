@@ -13,10 +13,14 @@
 		0B367C382C4001370005FCF7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B367C372C4001370005FCF7 /* LoginView.swift */; };
 		0B367C3A2C4001380005FCF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B367C392C4001380005FCF7 /* Assets.xcassets */; };
 		0B367C3D2C4001380005FCF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B367C3C2C4001380005FCF7 /* Preview Assets.xcassets */; };
+		0B66BDB12C5202F200CA6635 /* ProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66BDB02C5202F200CA6635 /* ProfileInfoView.swift */; };
 		0B7CA6DD2C40EAF00072C22D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7CA6DC2C40EAF00072C22D /* RegistrationView.swift */; };
 		0B7CA6E12C410FF90072C22D /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7CA6E02C410FF90072C22D /* ApiManager.swift */; };
 		0B7CA6E42C4111060072C22D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7CA6E32C4111060072C22D /* Models.swift */; };
 		0BA0E00C2C4A2C4D00584BF6 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA0E00B2C4A2C4D00584BF6 /* ToastView.swift */; };
+		0BECA1E82C52320D00632057 /* Mac_Sample_Groceries_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BECA1E72C52320D00632057 /* Mac_Sample_Groceries_AppTests.swift */; };
+		0BECA1F52C52322300632057 /* Mac_Sample_Groceries_UIAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BECA1F42C52322300632057 /* Mac_Sample_Groceries_UIAppTests.swift */; };
+		0BECA1F72C52322300632057 /* Mac_Sample_Groceries_UIAppTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BECA1F62C52322300632057 /* Mac_Sample_Groceries_UIAppTestsLaunchTests.swift */; };
 		0BEDFFAF2C4E35E60085FB41 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEDFFAE2C4E35E60085FB41 /* AuthManager.swift */; };
 		0BEDFFB22C4E51360085FB41 /* GlobalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEDFFB12C4E51360085FB41 /* GlobalMethods.swift */; };
 		0BEDFFB42C4E58A90085FB41 /* VerifyEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEDFFB32C4E58A90085FB41 /* VerifyEmailView.swift */; };
@@ -28,6 +32,23 @@
 		625248AA2C4C27AB0081B97C /* CreateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625248A92C4C27AB0081B97C /* CreateListView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0BECA1E92C52320D00632057 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B367C2A2C4001370005FCF7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B367C312C4001370005FCF7;
+			remoteInfo = "Mac-Sample-Groceries-App";
+		};
+		0BECA1F82C52322300632057 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B367C2A2C4001370005FCF7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B367C312C4001370005FCF7;
+			remoteInfo = "Mac-Sample-Groceries-App";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0B0A68572C48F9F800E158C4 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		0B0A68592C48FA0500E158C4 /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
@@ -37,11 +58,17 @@
 		0B367C392C4001380005FCF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B367C3C2C4001380005FCF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0B367C3E2C4001380005FCF7 /* Mac_Sample_Groceries_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mac_Sample_Groceries_App.entitlements; sourceTree = "<group>"; };
+		0B66BDB02C5202F200CA6635 /* ProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoView.swift; sourceTree = "<group>"; };
 		0B7CA6DC2C40EAF00072C22D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		0B7CA6E02C410FF90072C22D /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		0B7CA6E32C4111060072C22D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		0B7CA6E62C4127EC0072C22D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0BA0E00B2C4A2C4D00584BF6 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		0BECA1E52C52320D00632057 /* Mac-Sample-Groceries-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mac-Sample-Groceries-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BECA1E72C52320D00632057 /* Mac_Sample_Groceries_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mac_Sample_Groceries_AppTests.swift; sourceTree = "<group>"; };
+		0BECA1F22C52322300632057 /* Mac-Sample-Groceries-UIAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mac-Sample-Groceries-UIAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BECA1F42C52322300632057 /* Mac_Sample_Groceries_UIAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mac_Sample_Groceries_UIAppTests.swift; sourceTree = "<group>"; };
+		0BECA1F62C52322300632057 /* Mac_Sample_Groceries_UIAppTestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mac_Sample_Groceries_UIAppTestsLaunchTests.swift; sourceTree = "<group>"; };
 		0BEDFFAE2C4E35E60085FB41 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		0BEDFFB12C4E51360085FB41 /* GlobalMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalMethods.swift; sourceTree = "<group>"; };
 		0BEDFFB32C4E58A90085FB41 /* VerifyEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailView.swift; sourceTree = "<group>"; };
@@ -61,6 +88,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BECA1E22C52320D00632057 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BECA1EF2C52322300632057 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -68,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				0B367C342C4001370005FCF7 /* Mac-Sample-Groceries-App */,
+				0BECA1E62C52320D00632057 /* Mac-Sample-Groceries-AppTests */,
+				0BECA1F32C52322300632057 /* Mac-Sample-Groceries-UIAppTests */,
 				0B367C332C4001370005FCF7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				0B367C322C4001370005FCF7 /* Mac-Sample-Groceries-App.app */,
+				0BECA1E52C52320D00632057 /* Mac-Sample-Groceries-AppTests.xctest */,
+				0BECA1F22C52322300632057 /* Mac-Sample-Groceries-UIAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,6 +163,7 @@
 				625248A92C4C27AB0081B97C /* CreateListView.swift */,
 				62283B5D2C4D3AA300A5664F /* CreateItemsListView.swift */,
 				0BEDFFB32C4E58A90085FB41 /* VerifyEmailView.swift */,
+				0B66BDB02C5202F200CA6635 /* ProfileInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +174,23 @@
 				0B7CA6E32C4111060072C22D /* Models.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0BECA1E62C52320D00632057 /* Mac-Sample-Groceries-AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				0BECA1E72C52320D00632057 /* Mac_Sample_Groceries_AppTests.swift */,
+			);
+			path = "Mac-Sample-Groceries-AppTests";
+			sourceTree = "<group>";
+		};
+		0BECA1F32C52322300632057 /* Mac-Sample-Groceries-UIAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				0BECA1F42C52322300632057 /* Mac_Sample_Groceries_UIAppTests.swift */,
+				0BECA1F62C52322300632057 /* Mac_Sample_Groceries_UIAppTestsLaunchTests.swift */,
+			);
+			path = "Mac-Sample-Groceries-UIAppTests";
 			sourceTree = "<group>";
 		};
 		625248A42C4C195C0081B97C /* UIEffects */ = {
@@ -160,6 +223,42 @@
 			productReference = 0B367C322C4001370005FCF7 /* Mac-Sample-Groceries-App.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0BECA1E42C52320D00632057 /* Mac-Sample-Groceries-AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BECA1ED2C52320D00632057 /* Build configuration list for PBXNativeTarget "Mac-Sample-Groceries-AppTests" */;
+			buildPhases = (
+				0BECA1E12C52320D00632057 /* Sources */,
+				0BECA1E22C52320D00632057 /* Frameworks */,
+				0BECA1E32C52320D00632057 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BECA1EA2C52320D00632057 /* PBXTargetDependency */,
+			);
+			name = "Mac-Sample-Groceries-AppTests";
+			productName = "Mac-Sample-Groceries-AppTests";
+			productReference = 0BECA1E52C52320D00632057 /* Mac-Sample-Groceries-AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0BECA1F12C52322300632057 /* Mac-Sample-Groceries-UIAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BECA1FA2C52322300632057 /* Build configuration list for PBXNativeTarget "Mac-Sample-Groceries-UIAppTests" */;
+			buildPhases = (
+				0BECA1EE2C52322300632057 /* Sources */,
+				0BECA1EF2C52322300632057 /* Frameworks */,
+				0BECA1F02C52322300632057 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BECA1F92C52322300632057 /* PBXTargetDependency */,
+			);
+			name = "Mac-Sample-Groceries-UIAppTests";
+			productName = "Mac-Sample-Groceries-UIAppTests";
+			productReference = 0BECA1F22C52322300632057 /* Mac-Sample-Groceries-UIAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -172,6 +271,14 @@
 				TargetAttributes = {
 					0B367C312C4001370005FCF7 = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					0BECA1E42C52320D00632057 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 0B367C312C4001370005FCF7;
+					};
+					0BECA1F12C52322300632057 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 0B367C312C4001370005FCF7;
 					};
 				};
 			};
@@ -189,6 +296,8 @@
 			projectRoot = "";
 			targets = (
 				0B367C312C4001370005FCF7 /* Mac-Sample-Groceries-App */,
+				0BECA1E42C52320D00632057 /* Mac-Sample-Groceries-AppTests */,
+				0BECA1F12C52322300632057 /* Mac-Sample-Groceries-UIAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -203,6 +312,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BECA1E32C52320D00632057 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BECA1F02C52322300632057 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -210,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B66BDB12C5202F200CA6635 /* ProfileInfoView.swift in Sources */,
 				0BA0E00C2C4A2C4D00584BF6 /* ToastView.swift in Sources */,
 				62283B5E2C4D3AA300A5664F /* CreateItemsListView.swift in Sources */,
 				625248AA2C4C27AB0081B97C /* CreateListView.swift in Sources */,
@@ -230,7 +354,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BECA1E12C52320D00632057 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BECA1E82C52320D00632057 /* Mac_Sample_Groceries_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BECA1EE2C52322300632057 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BECA1F72C52322300632057 /* Mac_Sample_Groceries_UIAppTestsLaunchTests.swift in Sources */,
+				0BECA1F52C52322300632057 /* Mac_Sample_Groceries_UIAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0BECA1EA2C52320D00632057 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B367C312C4001370005FCF7 /* Mac-Sample-Groceries-App */;
+			targetProxy = 0BECA1E92C52320D00632057 /* PBXContainerItemProxy */;
+		};
+		0BECA1F92C52322300632057 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B367C312C4001370005FCF7 /* Mac-Sample-Groceries-App */;
+			targetProxy = 0BECA1F82C52322300632057 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0B367C3F2C4001380005FCF7 /* Debug */ = {
@@ -371,7 +525,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Mac-Sample-Groceries-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -400,12 +554,78 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Mac-Sample-Groceries-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		0BECA1EB2C52320D00632057 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B48NJV8578;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Mac-Sample-Groceries-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mac-Sample-Groceries-App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mac-Sample-Groceries-App";
+			};
+			name = Debug;
+		};
+		0BECA1EC2C52320D00632057 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B48NJV8578;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Mac-Sample-Groceries-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mac-Sample-Groceries-App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mac-Sample-Groceries-App";
+			};
+			name = Release;
+		};
+		0BECA1FB2C52322300632057 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B48NJV8578;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Mac-Sample-Groceries-UIAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Mac-Sample-Groceries-App";
+			};
+			name = Debug;
+		};
+		0BECA1FC2C52322300632057 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B48NJV8578;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Mac-Sample-Groceries-UIAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Mac-Sample-Groceries-App";
 			};
 			name = Release;
 		};
@@ -426,6 +646,24 @@
 			buildConfigurations = (
 				0B367C422C4001380005FCF7 /* Debug */,
 				0B367C432C4001380005FCF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BECA1ED2C52320D00632057 /* Build configuration list for PBXNativeTarget "Mac-Sample-Groceries-AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BECA1EB2C52320D00632057 /* Debug */,
+				0BECA1EC2C52320D00632057 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BECA1FA2C52322300632057 /* Build configuration list for PBXNativeTarget "Mac-Sample-Groceries-UIAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BECA1FB2C52322300632057 /* Debug */,
+				0BECA1FC2C52322300632057 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

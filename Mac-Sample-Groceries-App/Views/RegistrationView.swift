@@ -152,18 +152,6 @@ struct RegistrationView: View {
         return true
     }
     
-    private func isValidEmail(_ email: String) -> Bool {
-        // Basic email validation
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
-    }
-    
-    private func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
-        // Basic phone number validation
-        let phoneRegex = "^\\d{10}$"
-        return NSPredicate(format: "SELF MATCHES %@", phoneRegex).evaluate(with: phoneNumber)
-    }
-    
     private func registration(input:RegistrationInput) {
         isLoading = true
         let registrationUrl = URL(string: "http://127.0.0.1:8080/users/register")!
@@ -175,13 +163,6 @@ struct RegistrationView: View {
                 print("Registration successful : \(response.message)")
                 if response.status == 1 {
                     toastManager.show(message: "Registration Successful!", type: .success)
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//                        if #available(iOS 15, *) {
-//                            dismiss()
-//                        } else {
-//                            presentationMode.wrappedValue.dismiss()
-//                        }
-//                    }
                     let user = UserDetails(username: response.data?.username ?? "",
                                            isVerified: response.data?.isVerified ?? Bool(),
                                            phoneNumber: response.data?.phoneNumber ?? "",
@@ -211,6 +192,7 @@ struct RegistrationView: View {
 
 struct CustomButton: View {
     var title: String
+    var customColor: Color = .red
     var action: () -> Void
     
     var body: some View {
@@ -220,7 +202,7 @@ struct CustomButton: View {
                 .foregroundColor(.white)
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(Color.red)
+                .background(customColor)
                 .cornerRadius(15.0)
         }
         .buttonStyle(PlainButtonStyle())

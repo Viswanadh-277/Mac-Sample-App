@@ -16,6 +16,7 @@ struct ListView: View {
     @State private var isLoading: Bool = false
     @State private var isCreatingNewList: Bool = false
     @State private var navigateToItemsView = false
+    @State private var navigateToProfile = false
     @StateObject var toastManager = ToastManager()
     @Environment(\.presentationMode) var presentationMode
     
@@ -23,9 +24,9 @@ struct ListView: View {
         NavigationStack {
             GeometryReader { geo in
                 VStack {
-                    HStack{
+                    HStack {
                         Text("")
-                            .typingEffect(text: "Welcome, \((userObj.firstName) + " " + (userObj.lastName))!", speed: 0.1)
+                            .typingEffect(text: "Welcome, \((userObj.firstName ?? "") + " " + (userObj.lastName ?? ""))!", speed: 0.1)
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .fontDesign(.monospaced)
@@ -33,42 +34,38 @@ struct ListView: View {
                         
                         Spacer()
                         
-                        Button {
-                            authManager.logout()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                self.presentationMode.wrappedValue.dismiss()
+                        VStack (spacing: 20){
+                            Button {
+                                authManager.logout()
+                                navigateToProfile = true
+                            } label: {
+                                Image("personIcon")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 35, height: 35)
+                                
+                                Text("Profile")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .fontDesign(.rounded)
                             }
+                            .buttonStyle(PlainButtonStyle())
+                            .padding(.trailing)
                             
-                        } label: {
-                            Text("Log Out")
-                                .fontWeight(.bold)
-                                .padding(10)
-                                .background(Color.red)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                                .padding(.trailing)
+                            Button(action: {
+                                isCreatingNewList = true
+                            }) {
+                                Text("Create List")
+                                    .fontWeight(.bold)
+                                    .padding(7)
+                                    .background(Color.orange)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(8)
+                            }
+                            .buttonStyle(PlainButtonStyle())
                         }
-                        .buttonStyle(PlainButtonStyle())
                     }
                     .padding()
-                    
-                    
-                    HStack{
-                        Spacer()
-                            .frame(width: geo.size.width - 150)
-                        
-                        Button(action: {
-                            isCreatingNewList = true
-                        }) {
-                            Text("Create List")
-                                .fontWeight(.bold)
-                                .padding(.all,10)
-                                .background(Color.orange)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                    }
                     
                     if isLoading {
                         ProgressView("Loading...")
@@ -99,6 +96,9 @@ struct ListView: View {
                     }
                 }
                 .frame(width: geo.size.width, height: geo.size.height)
+                .navigationDestination(isPresented: $navigateToProfile) {
+                    ProfileInfoView(userObj: userObj)
+                }
                 .sheet(isPresented: $isCreatingNewList) {
                     CreateListView(userObj: userObj) { newItem in
                         createList(input: newItem)
@@ -113,12 +113,12 @@ struct ListView: View {
                     .frame(width: 500, height: 300)
                 }
             }
+            .navigationBarBackButtonHidden(false)
         }
         .toast(message: toastManager.message, isShowing: $toastManager.isShowing, type: toastManager.toastType)
         .navigationTitle("List Items")
-        .navigationBarBackButtonHidden()
         .onAppear {
-            let input = GetListItemInput(userId: userObj.id)
+            let input = GetListItemInput(userId: userObj.id ?? "")
             getAllListItemsByUserID(input: input)
         }
     }
@@ -161,7 +161,7 @@ struct ListView: View {
             case .success(let response):
                 isLoading = false
                 if response.status == 1 {
-                    getAllListItemsByUserID(input: GetListItemInput(userId: userObj.id))
+                    getAllListItemsByUserID(input: GetListItemInput(userId: userObj.id ?? ""))
                     toastManager.show(message: "\(response.message)", type: .success)
                 } else {
                     toastManager.show(message: "\(response.message)", type: .warning)
@@ -182,7 +182,7 @@ struct ListView: View {
             case .success(let response):
                 isLoading = false
                 if response.status == 1 {
-                    getAllListItemsByUserID(input: GetListItemInput(userId: userObj.id))
+                    getAllListItemsByUserID(input: GetListItemInput(userId: userObj.id ?? ""))
                     toastManager.show(message: "\(response.message)", type: .success)
                 } else {
                     toastManager.show(message: "\(response.message)", type: .warning)
@@ -203,7 +203,7 @@ struct ListView: View {
             case .success(let response):
                 isLoading = false
                 if response.status == 1 {
-                    getAllListItemsByUserID(input: GetListItemInput(userId: userObj.id))
+                    getAllListItemsByUserID(input: GetListItemInput(userId: userObj.id ?? ""))
                     toastManager.show(message: "\(response.message)", type: .success)
                 } else {
                     toastManager.show(message: "\(response.message)", type: .warning)
