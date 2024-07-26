@@ -22,11 +22,12 @@ struct CreateListView: View {
                     .cornerRadius(15)
                 
                 Button(action: {
-                    if validateFields() {
-                        let newItem = CreateListInput(listName: newName, userID: userObj.id ?? "")
+                    let newItem = CreateListInput(listName: newName, userID: userObj.id ?? "")
+                    let result = ListValidation().validateFields(request: newItem)
+                    if result.isValid == true {
                         action(newItem)
                     } else {
-                        toastManager.show(message: toastManager.message, type: .error)
+                        toastManager.show(message: result.message ?? "", type: .error)
                     }
                 }) {
                     Text("Create")

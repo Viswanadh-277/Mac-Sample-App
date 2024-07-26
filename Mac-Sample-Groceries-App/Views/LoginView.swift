@@ -9,13 +9,18 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var authManager = AuthManager()
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var showRegistrationView: Bool = false
-    @State private var navigateToActiveAccount: Bool = false
-    @State private var isLoading: Bool = false
-    @State private var navigateToListView = false
-    @StateObject var toastManager = ToastManager()
+    @State var email: String = ""
+    @State var password: String = ""
+    @State var showRegistrationView: Bool = false
+    @State var navigateToActiveAccount: Bool = false
+    @State var isLoading: Bool = false
+    @State var navigateToListView = false
+    @StateObject private var toastManager = ToastManager()
+    
+    init(authManager: AuthManager = AuthManager(), toastManager: ToastManager = ToastManager()) {
+            _authManager = StateObject(wrappedValue: authManager)
+            _toastManager = StateObject(wrappedValue: toastManager)
+        }
     
     var body: some View {
         NavigationStack {
@@ -51,10 +56,12 @@ struct LoginView: View {
                                 .progressViewStyle(CircularProgressViewStyle())
                         } else {
                             LoginButton {
-                                if validateFields() {
-                                    login(loginInput: LoginInput(email: email, password: password))
+                                let input = LoginInput(email: email, password: password)
+                                let result = LoginValidation().validateFields(request: input)
+                                if result.isValid == true {
+                                    login(loginInput: input)
                                 }else{
-                                    toastManager.show(message: toastManager.message, type: .error)
+                                    toastManager.show(message: result.message ?? "", type: .error)
                                 }
                             }
                         }
@@ -100,7 +107,7 @@ struct LoginView: View {
         .toast(message: toastManager.message, isShowing: $toastManager.isShowing, type: toastManager.toastType)
     }
     
-    private func validateFields() -> Bool {
+    func validateFields() -> Bool {
         if email.isEmpty {
             toastManager.show(message: "Email required.", type: .error)
             return false
@@ -116,7 +123,7 @@ struct LoginView: View {
     }
     
     
-    private func login(loginInput: LoginInput) {
+    func login(loginInput: LoginInput) {
         isLoading = true
         
         let loginUrl = URL(string: APIEndpoints.BASEURL + APIEndpoints.login)!

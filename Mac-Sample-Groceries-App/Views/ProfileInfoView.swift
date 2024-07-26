@@ -19,7 +19,7 @@ struct ProfileInfoView: View {
     @StateObject var toastManager = ToastManager()
     @StateObject private var authManager = AuthManager()
     @Environment(\.presentationMode) var presentationMode
-    var userObj : UserDetails
+    @State var userObj: UserDetails
     
     var body: some View {
         NavigationStack {
@@ -156,6 +156,7 @@ struct ProfileInfoView: View {
                                            firstName: response.data?.firstName ?? "",
                                            email: response.data?.email ?? "")
                     
+                    userObj = user
                     authManager.saveUserDetails(user)
                     authManager.isLoggedIn = true
                     clearAllFields([$firstName,$lastName,$username,$email,$phoneNumber])

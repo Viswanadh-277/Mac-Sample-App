@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemsView: View {
-    var listObj : ListData
+    @State var listObj : ListData
     @State private var itemsList: [ItemListData] = []
     @State private var selectedItem: ItemListData?
     @Environment(\.colorScheme) var colorScheme

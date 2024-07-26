@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ListView: View {
     @StateObject private var authManager = AuthManager()
-    var userObj : UserDetails
+    @State var userObj: UserDetails
     @State private var lists: [ListData] = []
     @State private var selectedItem: ListData?
     @Environment(\.colorScheme) var colorScheme

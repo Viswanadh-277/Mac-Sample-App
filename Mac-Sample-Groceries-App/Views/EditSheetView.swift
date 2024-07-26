@@ -22,12 +22,13 @@ struct EditSheetView: View {
                     .cornerRadius(15)
                 
                 Button(action: {
-                    if validateFields() {
-                        let newItem = UpdateListInput(listName: item.listName, id: item.id)
+                    let newItem = UpdateListInput(listName: item.listName, id: item.id)
+                    let request = UpdateListValidation().validateFields(request: newItem)
+                    if request.isValid == true {
                         action(newItem)
                         self.presentationMode.wrappedValue.dismiss()
                     } else {
-                        toastManager.show(message: toastManager.message, type: .error)
+                        toastManager.show(message: request.message ?? "", type: .error)
                     }
                 }) {
                     Text("Update")

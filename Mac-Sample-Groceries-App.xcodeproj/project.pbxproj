@@ -18,9 +18,16 @@
 		0B7CA6E12C410FF90072C22D /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7CA6E02C410FF90072C22D /* ApiManager.swift */; };
 		0B7CA6E42C4111060072C22D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7CA6E32C4111060072C22D /* Models.swift */; };
 		0BA0E00C2C4A2C4D00584BF6 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA0E00B2C4A2C4D00584BF6 /* ToastView.swift */; };
+		0BD626C92C535B13008C2628 /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD626C82C535B13008C2628 /* Validations.swift */; };
+		0BD626CB2C5385C2008C2628 /* LoginApiTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD626CA2C5385C2008C2628 /* LoginApiTestCases.swift */; };
+		0BD626CF2C53ADD5008C2628 /* SignUpValidationTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD626CE2C53ADD5008C2628 /* SignUpValidationTestCases.swift */; };
+		0BD626D12C53B305008C2628 /* SignUpApiTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD626D02C53B305008C2628 /* SignUpApiTestCases.swift */; };
+		0BD626D32C53B6F7008C2628 /* ListValidationAndApiTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD626D22C53B6F7008C2628 /* ListValidationAndApiTestCases.swift */; };
+		0BD626D52C53C5A1008C2628 /* ItemsValidationAndApiTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD626D42C53C5A1008C2628 /* ItemsValidationAndApiTestCases.swift */; };
 		0BECA1E82C52320D00632057 /* Mac_Sample_Groceries_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BECA1E72C52320D00632057 /* Mac_Sample_Groceries_AppTests.swift */; };
 		0BECA1F52C52322300632057 /* Mac_Sample_Groceries_UIAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BECA1F42C52322300632057 /* Mac_Sample_Groceries_UIAppTests.swift */; };
 		0BECA1F72C52322300632057 /* Mac_Sample_Groceries_UIAppTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BECA1F62C52322300632057 /* Mac_Sample_Groceries_UIAppTestsLaunchTests.swift */; };
+		0BECA1FE2C527A1B00632057 /* LoginValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BECA1FD2C527A1B00632057 /* LoginValidationTest.swift */; };
 		0BEDFFAF2C4E35E60085FB41 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEDFFAE2C4E35E60085FB41 /* AuthManager.swift */; };
 		0BEDFFB22C4E51360085FB41 /* GlobalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEDFFB12C4E51360085FB41 /* GlobalMethods.swift */; };
 		0BEDFFB42C4E58A90085FB41 /* VerifyEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEDFFB32C4E58A90085FB41 /* VerifyEmailView.swift */; };
@@ -64,11 +71,18 @@
 		0B7CA6E32C4111060072C22D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		0B7CA6E62C4127EC0072C22D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0BA0E00B2C4A2C4D00584BF6 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		0BD626C82C535B13008C2628 /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
+		0BD626CA2C5385C2008C2628 /* LoginApiTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApiTestCases.swift; sourceTree = "<group>"; };
+		0BD626CE2C53ADD5008C2628 /* SignUpValidationTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidationTestCases.swift; sourceTree = "<group>"; };
+		0BD626D02C53B305008C2628 /* SignUpApiTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpApiTestCases.swift; sourceTree = "<group>"; };
+		0BD626D22C53B6F7008C2628 /* ListValidationAndApiTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListValidationAndApiTestCases.swift; sourceTree = "<group>"; };
+		0BD626D42C53C5A1008C2628 /* ItemsValidationAndApiTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsValidationAndApiTestCases.swift; sourceTree = "<group>"; };
 		0BECA1E52C52320D00632057 /* Mac-Sample-Groceries-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mac-Sample-Groceries-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BECA1E72C52320D00632057 /* Mac_Sample_Groceries_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mac_Sample_Groceries_AppTests.swift; sourceTree = "<group>"; };
 		0BECA1F22C52322300632057 /* Mac-Sample-Groceries-UIAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mac-Sample-Groceries-UIAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BECA1F42C52322300632057 /* Mac_Sample_Groceries_UIAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mac_Sample_Groceries_UIAppTests.swift; sourceTree = "<group>"; };
 		0BECA1F62C52322300632057 /* Mac_Sample_Groceries_UIAppTestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mac_Sample_Groceries_UIAppTestsLaunchTests.swift; sourceTree = "<group>"; };
+		0BECA1FD2C527A1B00632057 /* LoginValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidationTest.swift; sourceTree = "<group>"; };
 		0BEDFFAE2C4E35E60085FB41 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		0BEDFFB12C4E51360085FB41 /* GlobalMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalMethods.swift; sourceTree = "<group>"; };
 		0BEDFFB32C4E58A90085FB41 /* VerifyEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailView.swift; sourceTree = "<group>"; };
@@ -135,6 +149,7 @@
 				0BEDFFB12C4E51360085FB41 /* GlobalMethods.swift */,
 				625248A42C4C195C0081B97C /* UIEffects */,
 				0B7CA6E22C4110F50072C22D /* Models */,
+				0BD626C62C5358B4008C2628 /* Validattions */,
 				0B7CA6DF2C4109380072C22D /* Views */,
 				0B367C392C4001380005FCF7 /* Assets.xcassets */,
 				0B367C3E2C4001380005FCF7 /* Mac_Sample_Groceries_App.entitlements */,
@@ -176,10 +191,40 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		0BD626C62C5358B4008C2628 /* Validattions */ = {
+			isa = PBXGroup;
+			children = (
+				0BD626C82C535B13008C2628 /* Validations.swift */,
+			);
+			path = Validattions;
+			sourceTree = "<group>";
+		};
+		0BD626CC2C53AD8F008C2628 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0BECA1FD2C527A1B00632057 /* LoginValidationTest.swift */,
+				0BD626CA2C5385C2008C2628 /* LoginApiTestCases.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0BD626CD2C53ADA0008C2628 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				0BD626CE2C53ADD5008C2628 /* SignUpValidationTestCases.swift */,
+				0BD626D02C53B305008C2628 /* SignUpApiTestCases.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 		0BECA1E62C52320D00632057 /* Mac-Sample-Groceries-AppTests */ = {
 			isa = PBXGroup;
 			children = (
 				0BECA1E72C52320D00632057 /* Mac_Sample_Groceries_AppTests.swift */,
+				0BD626CC2C53AD8F008C2628 /* Login */,
+				0BD626CD2C53ADA0008C2628 /* Registration */,
+				0BD626D22C53B6F7008C2628 /* ListValidationAndApiTestCases.swift */,
+				0BD626D42C53C5A1008C2628 /* ItemsValidationAndApiTestCases.swift */,
 			);
 			path = "Mac-Sample-Groceries-AppTests";
 			sourceTree = "<group>";
@@ -346,6 +391,7 @@
 				0B0A68582C48F9F800E158C4 /* ListView.swift in Sources */,
 				0B367C382C4001370005FCF7 /* LoginView.swift in Sources */,
 				62283B5C2C4D304000A5664F /* EditItemsListSheetView.swift in Sources */,
+				0BD626C92C535B13008C2628 /* Validations.swift in Sources */,
 				0BEDFFB42C4E58A90085FB41 /* VerifyEmailView.swift in Sources */,
 				62283B5A2C4CF67700A5664F /* EditSheetView.swift in Sources */,
 				625248A62C4C197F0081B97C /* TypingEffect.swift in Sources */,
@@ -358,6 +404,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BECA1FE2C527A1B00632057 /* LoginValidationTest.swift in Sources */,
+				0BD626CB2C5385C2008C2628 /* LoginApiTestCases.swift in Sources */,
+				0BD626CF2C53ADD5008C2628 /* SignUpValidationTestCases.swift in Sources */,
+				0BD626D32C53B6F7008C2628 /* ListValidationAndApiTestCases.swift in Sources */,
+				0BD626D52C53C5A1008C2628 /* ItemsValidationAndApiTestCases.swift in Sources */,
+				0BD626D12C53B305008C2628 /* SignUpApiTestCases.swift in Sources */,
 				0BECA1E82C52320D00632057 /* Mac_Sample_Groceries_AppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

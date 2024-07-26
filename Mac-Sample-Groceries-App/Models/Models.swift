@@ -33,8 +33,8 @@ struct SuccessResponse: Codable {
 
 //MARK: - Registration
 struct RegistrationInput: Codable {
-    var firstName, lastName, username, email: String?
-    var phoneNumber, password, confirmPassword: String?
+    var firstName, lastName, username, email: String
+    var phoneNumber, password, confirmPassword: String
 }
 
 //MARK: - Email Verification
@@ -103,7 +103,10 @@ struct DeleteItemListInput : Codable {
     var id : String
 }
 
-
+struct ValidationResponse {
+    let message: String?
+    let isValid: Bool
+}
 
 //struct ListItem: Identifiable {
 //    let id: UUID

@@ -42,6 +42,7 @@ class AuthManager: ObservableObject {
         userDefaults.set(user.passwordHash, forKey: "passwordHash")
         userDefaults.set(user.firstName, forKey: "firstName")
         userDefaults.set(user.email, forKey: "email")
+        userDefaults.synchronize()
     }
     
     func getUserFromDefaults() -> UserDetails? {

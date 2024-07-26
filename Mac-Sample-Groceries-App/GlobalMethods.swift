@@ -60,7 +60,8 @@ func clearAllFields(_ fields: [Binding<String>]) {
 func isValidEmail(_ email: String) -> Bool {
     // Basic email validation
     let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-    return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+    let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+    return emailPred.evaluate(with: email)
 }
 
 func isValidPhoneNumber(_ phoneNumber: String) -> Bool {

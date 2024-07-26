@@ -36,12 +36,13 @@ struct EditItemsListSheetView: View {
                 .cornerRadius(15)
                 
                 Button(action: {
-                    if validateFields() {
-                        let newItem = UpdateItemListInput(itemName: item.itemName ?? "" , quantity: item.quantity ?? "", id: item.id ?? "")
+                    let newItem = UpdateItemListInput(itemName: item.itemName ?? "" , quantity: item.quantity ?? "", id: item.id ?? "")
+                    let request = UpdateItemsValidation().validateFields(request: newItem)
+                    if request.isValid == true {
                         action(newItem)
                         self.presentationMode.wrappedValue.dismiss()
                     } else {
-                        toastManager.show(message: toastManager.message, type: .error)
+                        toastManager.show(message: request.message ?? "", type: .error)
                     }
                 }) {
                     Text("Update")

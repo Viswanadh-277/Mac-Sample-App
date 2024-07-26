@@ -10,17 +10,17 @@ import SwiftUI
 struct RegistrationView: View {
     @Environment(\.dismiss) var dismiss //--> above iOS 15
     @Environment(\.presentationMode) var presentationMode //--> below iOS 15
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
-    @State private var username: String = ""
-    @State private var email: String = ""
-    @State private var phoneNumber: String = ""
-    @State private var password: String = ""
-    @State private var confirmPassword: String = ""
-    @State private var isLoading: Bool = false
-    @State private var showAlert: Bool = false
-    @State private var alertMessage: String = ""
-    @State private var alertTitle: String = ""
+    @State var firstName: String = ""
+    @State var lastName: String = ""
+    @State var username: String = ""
+    @State var email: String = ""
+    @State var phoneNumber: String = ""
+    @State var password: String = ""
+    @State var confirmPassword: String = ""
+    @State var isLoading: Bool = false
+    @State var showAlert: Bool = false
+    @State var alertMessage: String = ""
+    @State var alertTitle: String = ""
     @StateObject var toastManager = ToastManager()
     @StateObject private var authManager = AuthManager()
     @State private var navigateToListView = false
@@ -62,17 +62,20 @@ struct RegistrationView: View {
                                 .progressViewStyle(CircularProgressViewStyle())
                         } else {
                             CustomButton(title: "Sign Up") {
-                                if validateFields() {
-                                    registration(input: RegistrationInput(
-                                        firstName: firstName,
-                                        lastName: lastName,
-                                        username: username,
-                                        email: email,
-                                        phoneNumber: phoneNumber,
-                                        password: password,
-                                        confirmPassword: confirmPassword))
+                                let input = RegistrationInput(
+                                    firstName: firstName,
+                                    lastName: lastName,
+                                    username: username,
+                                    email: email,
+                                    phoneNumber: phoneNumber,
+                                    password: password,
+                                    confirmPassword: confirmPassword)
+                                
+                                let result = SignUpValidation().validateFields(request: input)
+                                if result.isValid == true {
+                                    registration(input: input)
                                 }else{
-                                    toastManager.show(message: toastManager.message, type: .error)
+                                    toastManager.show(message: result.message ?? "", type: .error)
                                 }
                             }
                             .padding(.top, 20)
