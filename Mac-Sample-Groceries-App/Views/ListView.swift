@@ -119,12 +119,23 @@ struct ListView: View {
         .navigationTitle("List Items")
         .onAppear {
             let input = GetListItemInput(userId: userObj.id ?? "")
-            getAllListItemsByUserID(input: input)
+            let fetchedLists = DatabaseManager.shared.fetchLists(userID: input.userId)
+            if fetchedLists.isEmpty {
+                getAllListItemsByUserID(input: input)
+            } else {
+                self.lists = fetchedLists
+            }
         }
     }
     
     private func deleteItem(item: ListData) {
         deleteList(input: DeleteListInput(id: item.id))
+        DatabaseManager.shared.deleteList(listID: item.id)
+        
+        // Reload the list
+        let input = GetListItemInput(userId: userObj.id ?? "")
+        self.lists = DatabaseManager.shared.fetchLists(userID: input.userId)
+        
         selectedItem = nil // Reset selected item after deletion
     }
     
@@ -139,9 +150,13 @@ struct ListView: View {
                 isLoading = false
                 if response.status == 1 {
                     if let data = response.data {
-                        self.lists = data.map { ListData(listName: $0.listName, userID: $0.userID, id: $0.id) }
+                        // Insert data into SQLite
+                        let listData = data.map { ListData(listName: $0.listName, userID: $0.userID, id: $0.id) }
+                        DatabaseManager.shared.insertLists(listData)
+                        
+                        self.lists = DatabaseManager.shared.fetchLists(userID: input.userId)
                     }
-                    toastManager.show(message: "\(response.message)", type: .success)
+//                    toastManager.show(message: "\(response.message)", type: .success)
                 } else {
                     toastManager.show(message: "\(response.message)", type: .warning)
                 }
@@ -164,7 +179,7 @@ struct ListView: View {
                 isLoading = false
                 if response.status == 1 {
                     getAllListItemsByUserID(input: GetListItemInput(userId: userObj.id ?? ""))
-                    toastManager.show(message: "\(response.message)", type: .success)
+//                    toastManager.show(message: "\(response.message)", type: .success)
                 } else {
                     toastManager.show(message: "\(response.message)", type: .warning)
                 }
@@ -186,7 +201,7 @@ struct ListView: View {
                 isLoading = false
                 if response.status == 1 {
                     getAllListItemsByUserID(input: GetListItemInput(userId: userObj.id ?? ""))
-                    toastManager.show(message: "\(response.message)", type: .success)
+//                    toastManager.show(message: "\(response.message)", type: .success)
                 } else {
                     toastManager.show(message: "\(response.message)", type: .warning)
                 }
@@ -208,7 +223,7 @@ struct ListView: View {
                 isLoading = false
                 if response.status == 1 {
                     getAllListItemsByUserID(input: GetListItemInput(userId: userObj.id ?? ""))
-                    toastManager.show(message: "\(response.message)", type: .success)
+//                    toastManager.show(message: "\(response.message)", type: .success)
                 } else {
                     toastManager.show(message: "\(response.message)", type: .warning)
                 }

@@ -19,14 +19,14 @@ struct EditItemsListSheetView: View {
                 VStack(spacing: 20) {
                     CustomTextField(placeholder: "Item Name",
                                     text: Binding(
-                                        get: { item.itemName ?? "" },
+                                        get: { item.itemName },
                                         set: { item.itemName = $0 }
                                     )
                     )
                     CustomTextField(
                         placeholder: "Quantity",
                         text: Binding(
-                            get: { item.quantity ?? "" },
+                            get: { item.quantity },
                             set: { item.quantity = $0 }
                         )
                     )
@@ -36,7 +36,7 @@ struct EditItemsListSheetView: View {
                 .cornerRadius(15)
                 
                 Button(action: {
-                    let newItem = UpdateItemListInput(itemName: item.itemName ?? "" , quantity: item.quantity ?? "", id: item.id ?? "")
+                    let newItem = UpdateItemListInput(itemName: item.itemName , quantity: item.quantity, id: item.id)
                     let request = UpdateItemsValidation().validateFields(request: newItem)
                     if request.isValid == true {
                         action(newItem)
@@ -68,10 +68,10 @@ struct EditItemsListSheetView: View {
     }
     
     private func validateFields() -> Bool {
-        if item.itemName == nil || item.itemName == "" {
+        if item.itemName.isEmpty || item.itemName == "" {
             toastManager.show(message: "Item Name required.", type: .error)
             return false
-        } else if item.quantity == nil || item.quantity == "" {
+        } else if item.quantity.isEmpty || item.quantity == "" {
             toastManager.show(message: "Quantity required.", type: .error)
             return false
         }

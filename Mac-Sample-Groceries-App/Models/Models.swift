@@ -88,7 +88,7 @@ struct GetItemlistById: Codable {
 }
 
 struct ItemListData: Codable,Identifiable {
-    var itemName, listID, quantity, id: String?
+    var itemName, listID, quantity, id: String
 }
 
 struct CreateItemListInput : Codable {
@@ -101,6 +101,10 @@ struct UpdateItemListInput : Codable {
 
 struct DeleteItemListInput : Codable {
     var id : String
+}
+
+struct DeleteUserInput : Codable {
+    var userID : String
 }
 
 struct ValidationResponse {

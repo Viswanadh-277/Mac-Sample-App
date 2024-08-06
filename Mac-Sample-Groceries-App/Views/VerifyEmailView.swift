@@ -90,7 +90,7 @@ struct VerifyEmailView: View {
             .navigationTitle("Verify Email")
             .toast(message: toastManager.message, isShowing: $toastManager.isShowing, type: toastManager.toastType)
             .navigationDestination(isPresented: $navigateToListView) {
-                if let user = authManager.getUserFromDefaults(), user.isVerified == true {
+                if let user = authManager.user, user.isVerified == true {
                     ListView(userObj: user)
                 }
             }
@@ -126,7 +126,7 @@ struct VerifyEmailView: View {
             case .success(let response):
                 isLoading = false
                 if response.status == 1 {
-                    toastManager.show(message: "Email Verified Successful!", type: .success)
+//                    toastManager.show(message: "Email Verified Successful!", type: .success)
                     let user = UserDetails(username: response.data?.username ?? "",
                                            isVerified: response.data?.isVerified ?? Bool(),
                                            phoneNumber: response.data?.phoneNumber ?? "",
@@ -135,6 +135,9 @@ struct VerifyEmailView: View {
                                            passwordHash: response.data?.passwordHash ?? "",
                                            firstName: response.data?.firstName ?? "",
                                            email: response.data?.email ?? "")
+                    
+                    // Update user in SQLite database
+                    DatabaseManager.shared.updateUser(user: user)
                     
                     authManager.saveUserDetails(user)
                     authManager.isLoggedIn = true

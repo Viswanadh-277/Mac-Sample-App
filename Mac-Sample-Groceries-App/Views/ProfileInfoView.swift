@@ -76,7 +76,7 @@ struct ProfileInfoView: View {
                         }
                     },
                                            deleteUser: {
-                        let input = DeleteItemListInput(id: userObj.id ?? "")
+                        let input = DeleteUserInput(userID: userObj.id ?? "")
                         DeleteUser(input: input)
                     })
                 }
@@ -157,7 +157,7 @@ struct ProfileInfoView: View {
                                            email: response.data?.email ?? "")
                     
                     userObj = user
-                    authManager.saveUserDetails(user)
+                    DatabaseManager.shared.updateUser(user: user)
                     authManager.isLoggedIn = true
                     clearAllFields([$firstName,$lastName,$username,$email,$phoneNumber])
                     
@@ -171,7 +171,7 @@ struct ProfileInfoView: View {
         }
     }
     
-    private func DeleteUser(input: DeleteItemListInput) {
+    private func DeleteUser(input: DeleteUserInput) {
         isLoading = true
         
 //        let deleteUrl = URL(string: "http://127.0.0.1:8080/users/deleteUser")!
@@ -186,6 +186,7 @@ struct ProfileInfoView: View {
                     authManager.isLoggedIn = false
                     navigateToLogin = true
                     clearAllFields([$firstName,$lastName,$username,$email,$phoneNumber])
+                    DatabaseManager.shared.deleteAllTables()
                 } else {
                     toastManager.show(message: "Delete Failed: \(response.message)", type: .warning)
                 }

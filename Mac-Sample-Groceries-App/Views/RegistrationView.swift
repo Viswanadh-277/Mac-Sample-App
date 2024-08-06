@@ -104,7 +104,7 @@ struct RegistrationView: View {
             .toast(message: toastManager.message, isShowing: $toastManager.isShowing, type: toastManager.toastType)
             .navigationTitle("Registration")
             .navigationDestination(isPresented: $navigateToListView) {
-                if let user = authManager.getUserFromDefaults(), user.isVerified == true {
+                if let user = authManager.user, user.isVerified == true {
                     ListView(userObj: user)
                 } else {
                     VerifyEmailView()
@@ -166,7 +166,7 @@ struct RegistrationView: View {
                 isLoading = false
                 print("Registration successful : \(response.message)")
                 if response.status == 1 {
-                    toastManager.show(message: "Registration Successful!", type: .success)
+//                    toastManager.show(message: "Registration Successful!", type: .success)
                     let user = UserDetails(username: response.data?.username ?? "",
                                            isVerified: response.data?.isVerified ?? Bool(),
                                            phoneNumber: response.data?.phoneNumber ?? "",
@@ -175,6 +175,8 @@ struct RegistrationView: View {
                                            passwordHash: response.data?.passwordHash ?? "",
                                            firstName: response.data?.firstName ?? "",
                                            email: response.data?.email ?? "")
+                    
+                    DatabaseManager.shared.insertUser(user: user)
                     
                     clearAllFields([$firstName,$lastName,$username,$email,$phoneNumber,$password,$confirmPassword])
                     authManager.saveUserDetails(user)

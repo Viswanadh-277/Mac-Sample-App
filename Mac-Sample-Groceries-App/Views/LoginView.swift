@@ -92,7 +92,7 @@ struct LoginView: View {
                     RegistrationView()
                 }
                 .navigationDestination(isPresented: $navigateToListView) {
-                    if let user = authManager.getUserFromDefaults(), user.isVerified == true {
+                    if let user = authManager.user, user.isVerified == true {
                         ListView(userObj: user)
                     }else{
                         VerifyEmailView()
@@ -134,7 +134,7 @@ struct LoginView: View {
                 isLoading = false
                 print("Login successful : \(response.message)")
                 if response.status == 1 {
-                    toastManager.show(message: "Login successful!", type: .success)
+//                    toastManager.show(message: "Login successful!", type: .success)
                     let user = UserDetails(username: response.data?.username ?? "",
                                            isVerified: response.data?.isVerified ?? Bool(),
                                            phoneNumber: response.data?.phoneNumber ?? "",

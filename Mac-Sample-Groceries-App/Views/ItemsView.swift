@@ -110,12 +110,24 @@ struct ItemsView: View {
         .navigationTitle("Items List")
         .onAppear {
             let input = GetItemsListInput(listId: listObj.id)
+//            let fetchedItems = DatabaseManager.shared.fetchItems(listID: input.listId)
             getAllItemsByListID(input: input)
+//            if fetchedItems.isEmpty {
+//                getAllItemsByListID(input: input)
+//            } else {
+//                self.itemsList = fetchedItems
+//            }
         }
     }
     
     private func deleteItem(item: ItemListData) {
-        deleteItemList(input: DeleteItemListInput(id: item.id ?? ""))
+        deleteItemList(input: DeleteItemListInput(id: item.id))
+        DatabaseManager.shared.deleteItem(itemID: item.id)
+        
+        // Reload the list
+        let input = GetItemsListInput(listId: listObj.id)
+        self.itemsList = DatabaseManager.shared.fetchItems(listID: input.listId)
+       
         selectedItem = nil // Reset selected item after deletion
     }
     
@@ -130,9 +142,14 @@ struct ItemsView: View {
                 isLoading = false
                 if response.status == 1 {
                     if let data = response.data {
-                        self.itemsList = data.map { ItemListData(itemName: $0.itemName, listID: $0.listID, quantity: $0.quantity, id: $0.id) }
+                        // Insert data into SQLite
+                        let itemData = data.map { ItemListData(itemName: $0.itemName, listID: $0.listID, quantity: $0.quantity, id: $0.id) }
+                        DatabaseManager.shared.insertItems(itemData)
+                        
+                        self.itemsList = DatabaseManager.shared.fetchItems(listID: input.listId)
+                        
                     }
-                    toastManager.show(message: "\(response.message)", type: .success)
+//                    toastManager.show(message: "\(response.message)", type: .success)
                 } else {
                     toastManager.show(message: "\(response.message)", type: .warning)
                 }
@@ -155,7 +172,7 @@ struct ItemsView: View {
                 isLoading = false
                 if response.status == 1 {
                     getAllItemsByListID(input: GetItemsListInput(listId: listObj.id))
-                    toastManager.show(message: "\(response.message)", type: .success)
+//                    toastManager.show(message: "\(response.message)", type: .success)
                 } else {
                     toastManager.show(message: "\(response.message)", type: .warning)
                 }
@@ -177,7 +194,7 @@ struct ItemsView: View {
                 isLoading = false
                 if response.status == 1 {
                     getAllItemsByListID(input: GetItemsListInput(listId: listObj.id))
-                    toastManager.show(message: "\(response.message)", type: .success)
+//                    toastManager.show(message: "\(response.message)", type: .success)
                 } else {
                     toastManager.show(message: "\(response.message)", type: .warning)
                 }
@@ -199,7 +216,7 @@ struct ItemsView: View {
                 isLoading = false
                 if response.status == 1 {
                     getAllItemsByListID(input: GetItemsListInput(listId: listObj.id ))
-                    toastManager.show(message: "\(response.message)", type: .success)
+//                    toastManager.show(message: "\(response.message)", type: .success)
                 } else {
                     toastManager.show(message: "\(response.message)", type: .warning)
                 }
@@ -220,9 +237,9 @@ struct ItemListView: View {
         HStack {
             
             VStack(alignment: .leading, spacing: 10) {
-                Text(item.itemName ?? "")
+                Text(item.itemName)
                     .font(.headline)
-                Text("Quantity: \(item.quantity ?? "")")
+                Text("Quantity: \(item.quantity)")
                     .font(.subheadline)
             }
                 

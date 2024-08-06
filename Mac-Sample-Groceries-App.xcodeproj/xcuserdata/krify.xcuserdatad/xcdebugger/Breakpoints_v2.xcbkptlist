@@ -39,17 +39,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B43367C4-F0DE-46AB-9A72-E4B72D787E9E"
-            shouldBeEnabled = "Yes"
+            uuid = "D7762FA4-3BDE-43BA-936F-B9D9BA592CEF"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mac-Sample-Groceries-App/Views/EditItemsListSheetView.swift"
+            filePath = "Mac-Sample-Groceries-App/Views/ListView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "deleteItem(item:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
